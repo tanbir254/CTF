@@ -1,0 +1,3 @@
+Description: OSINT challenges require gathering information from publicly available sources to solve problems.
+Common Skills: Search engine usage, social media analysis, and investigation of publicly available documents and data.
+Example: Find a hidden flag by searching through a person's online presence or searching a particular website for clues.
