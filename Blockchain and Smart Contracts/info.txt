@@ -1,0 +1,3 @@
+Description: These challenges focus on vulnerabilities or issues within blockchain systems or smart contracts (such as those written for Ethereum).
+Common Skills: Understanding of blockchain technology, Ethereum, and smart contract vulnerabilities.
+Example: Exploit a vulnerability in a smart contract to steal funds or uncover a hidden flag.
