@@ -1,0 +1,3 @@
+Description: Challenges related to cryptocurrency systems like Bitcoin or Ethereum. This could include analyzing wallets, transactions, or exploiting smart contracts.
+Common Skills: Understanding of cryptocurrency principles, transactions, and wallet security.
+Example: Analyze a Bitcoin transaction to reveal the hidden flag embedded in the transaction's metadata.
