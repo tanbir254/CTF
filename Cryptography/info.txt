@@ -1,0 +1,3 @@
+Description: These challenges involve cracking or understanding cryptographic algorithms and protocols.
+Common Skills: Cryptanalysis, understanding common cryptographic algorithms (RSA, AES, DES), and breaking weak encryption methods.
+Example: Decrypt a message encrypted with a weak or broken cipher, such as Caesar cipher or RSA with small keys.
