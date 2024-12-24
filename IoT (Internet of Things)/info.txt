@@ -1,0 +1,3 @@
+Description: These challenges involve the security of embedded systems or IoT devices.
+Common Skills: Hardware hacking, firmware analysis, and exploiting flaws in IoT devices.
+Example: Exploit a vulnerability in an IoT device's firmware to gain access to a flag.
