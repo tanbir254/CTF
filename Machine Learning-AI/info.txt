@@ -1,0 +1,3 @@
+Description: These challenges involve using machine learning models or exploiting flaws in AI algorithms.
+Common Skills: Understanding machine learning principles, model training, and vulnerability analysis in AI systems.
+Example: Use a machine learning model to decode a hidden flag embedded in a dataset.
