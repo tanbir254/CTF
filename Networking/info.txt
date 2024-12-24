@@ -1,0 +1,3 @@
+Description: Networking challenges focus on protocols, network traffic, or network-based vulnerabilities.
+Common Skills: TCP/IP, UDP, DNS, HTTP, and other networking protocols; packet analysis with tools like Wireshark.
+Example: Intercept and analyze network traffic to find a flag hidden in a packet capture (PCAP) file.
