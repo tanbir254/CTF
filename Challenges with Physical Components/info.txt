@@ -1,0 +1,3 @@
+Description: Some CTFs might include physical hardware challenges like lockpicking, RFID hacking, or using specific hardware tools to extract data.
+Common Skills: Hardware manipulation, lockpicking, or RFID/NFC exploitation.
+Example: Unlock a physical device or hack into a smart lock to retrieve a physical flag.
