@@ -1,0 +1,3 @@
+Description: These challenges don't fit neatly into other categories but may involve problem-solving, logical puzzles, or general hacking techniques.
+Common Skills: General problem-solving, creative thinking, and knowledge of various tools and techniques.
+Example: Solve a cryptic puzzle or mathematical challenge that leads to the flag.
