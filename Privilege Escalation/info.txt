@@ -1,0 +1,3 @@
+Description: This challenge type involves gaining higher levels of privilege (e.g., root or administrator access) on a system.
+Common Skills: Exploiting misconfigurations or vulnerabilities in the system to gain elevated privileges.
+Example: Exploit a setuid binary on a Linux system to escalate privileges and read a flag stored in a protected directory.
