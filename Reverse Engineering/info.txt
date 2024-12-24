@@ -1,0 +1,3 @@
+Description: Challenges in this category require participants to analyze and reverse engineer software or binaries (often obfuscated) to uncover hidden information such as the flag.
+Common Skills: Disassembly, decompilation, and understanding of assembly code or high-level language manipulation.
+Example: Analyze a compiled binary to extract a hardcoded flag or uncover the correct input for a program to output the flag.
