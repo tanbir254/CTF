@@ -1,0 +1,3 @@
+Description: Challenges that require manipulating human behavior to retrieve sensitive information, such as tricking someone into providing a flag.
+Common Skills: Psychological manipulation, phishing, and creating convincing attacks.
+Example: Craft a convincing phishing email that tricks a user into giving up a flag.
