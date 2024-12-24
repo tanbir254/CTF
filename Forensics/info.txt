@@ -1,0 +1,3 @@
+Description: Forensic challenges involve analyzing various types of data (e.g., network traffic, images, files) to uncover hidden flags or information.
+Common Skills: File analysis, steganography, memory analysis, network traffic analysis, and data recovery.
+Example: Extract hidden data from an image using steganography tools or recover deleted files from a disk image.
