@@ -1,0 +1,24 @@
+executable linux file
+
+└─$ file keygen_me   
+└─$ nm -C keygen_me  
+]
+└─$ strings -n 5 keygen_me | less
+
+chmod +x file_name
+./file_name to execute
+
+or ghidra the file to know the functions to complete
+
+
+==============================================================
+
+ghidra analysis to get the key
+
+
+----------------------------------------------------------
+
+
+
+
+
