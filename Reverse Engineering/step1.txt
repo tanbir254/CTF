@@ -20,5 +20,108 @@ ghidra analysis to get the key
 
 
 
+└─$ head -c 16 encrypt_file.bin > iv.bin
+└─$ cat iv.bin    
+└─$ tail -c +17 encrypt_file.bin > encrypteddata.bin
+└─$ cat encrypteddata.bin        
+└─$ nano enc.c++   
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <openssl/evp.h>
+#include <openssl/rand.h>
+
+using namespace std;
+
+const unsigned char key[16] = { 
+    0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 
+    0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10 
+}; // 128-bit key
+
+unsigned char iv[16]; // Initialization vector
+
+void decrypt_file(const char* filename, const unsigned char* key) {
+    // Open input file
+    ifstream input_file(filename, ios::binary);
+    if (!input_file.is_open()) {
+        cerr << "Error opening input file" << endl;
+        return;
+    }
+
+    // Read IV (first 16 bytes)
+    input_file.read(reinterpret_cast<char*>(iv), sizeof(iv));
+
+    // Read encrypted data
+    vector<unsigned char> encrypted_data((istreambuf_iterator<char>(input_file)), istreambuf_iterator<char>());
+    input_file.close();
+
+    if (encrypted_data.empty()) {
+        cerr << "Error: Encrypted file is empty or corrupted." << endl;
+        return;
+    }
+
+    // Create decryption context
+    EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
+    if (!ctx) {
+        cerr << "Error initializing EVP_CIPHER_CTX" << endl;
+        return;
+    }
+
+    // Initialize decryption (AES-128-CBC)
+    if (1 != EVP_DecryptInit_ex(ctx, EVP_aes_128_cbc(), nullptr, key, iv)) {
+        cerr << "Error initializing decryption" << endl;
+        EVP_CIPHER_CTX_free(ctx);
+        return;
+    }
+
+    // Prepare output buffer
+    vector<unsigned char> decrypted_data(encrypted_data.size());
+    int len, plaintext_len = 0;
+
+    // Perform decryption
+    if (1 != EVP_DecryptUpdate(ctx, decrypted_data.data(), &len, encrypted_data.data(), encrypted_data.size())) {
+        cerr << "Error during decryption" << endl;
+        EVP_CIPHER_CTX_free(ctx);
+        return;
+    }
+    plaintext_len = len;
+
+    // Finalize decryption
+    if (1 != EVP_DecryptFinal_ex(ctx, decrypted_data.data() + len, &len)) {
+        cerr << "Error finalizing decryption. Possible wrong key or corrupted data." << endl;
+        EVP_CIPHER_CTX_free(ctx);
+        return;
+    }
+    plaintext_len += len;
+
+    // Free OpenSSL context
+    EVP_CIPHER_CTX_free(ctx);
+
+    // Write decrypted data to output file
+    ofstream output_file("decrypted_flag.txt", ios::binary);
+    if (!output_file.is_open()) {
+        cerr << "Error opening output file" << endl;
+        return;
+    }
+    output_file.write(reinterpret_cast<const char*>(decrypted_data.data()), plaintext_len);
+    output_file.close();
+
+    cout << "Decryption completed successfully. Output saved in 'decrypted_flag.txt'." << endl;
+}
+
+int main() {
+    decrypt_file("encrypt_file.bin", key);
+    return 0;
+}
+
+
+└─$ mv enc.c++ enc.cpp          
+└─$ g++ dec.cpp -o dec -lssl -lcrypto     
+└─$ ./dec                                           
+└─$ cat decrypted_flag.txt                          
+
+
+
 
 
