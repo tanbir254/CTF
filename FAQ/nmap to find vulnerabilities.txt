@@ -1,0 +1,126 @@
+Using `nmap` to find vulnerabilities for **Proof-of-Concept (PoC)** testing is a common part of ethical hacking, penetration testing, and security research. Here's how to do it **safely and legally**.
+
+---
+
+### ⚠️ Disclaimer
+
+**Use Nmap only on systems you own or have explicit permission to test. Unauthorized scanning is illegal.**
+
+---
+
+## 🧰 Step-by-Step: Using Nmap for Vulnerability Scanning
+
+### ✅ 1. Basic Host Discovery
+
+Find live hosts on a network:
+
+```bash
+nmap -sn 192.168.1.0/24
+```
+
+---
+
+### ✅ 2. Port Scanning
+
+Check open ports and running services:
+
+```bash
+nmap -sS -sV -T4 192.168.1.100
+```
+
+* `-sS` = SYN scan (stealthy)
+* `-sV` = Service version detection
+* `-T4` = Faster timing (less stealthy)
+
+---
+
+### ✅ 3. OS Detection and Service Fingerprinting
+
+```bash
+nmap -A 192.168.1.100
+```
+
+* `-A` enables OS detection, version detection, script scanning, and traceroute.
+
+---
+
+### ✅ 4. Use Nmap Scripting Engine (NSE) for Vulnerabilities
+
+Nmap comes with powerful scripts in the **Nmap Scripting Engine (NSE)**.
+
+#### 🔍 Scan for known vulnerabilities:
+
+```bash
+nmap --script vuln 192.168.1.100
+```
+
+This runs all scripts in the `vuln` category.
+
+#### 🧪 Run specific PoC-related scripts:
+
+Examples:
+
+```bash
+nmap --script=http-vuln-cve2014-3704 -p 80 192.168.1.100
+```
+
+* This scans for **Drupal SQL injection (CVE-2014-3704)**.
+
+You can find available scripts in:
+
+```bash
+ls /usr/share/nmap/scripts/
+```
+
+Or search scripts by keyword:
+
+```bash
+ls /usr/share/nmap/scripts/ | grep ssh
+```
+
+---
+
+### ✅ 5. Output Results for Review
+
+Save output in different formats:
+
+```bash
+nmap -sV --script vuln -oA vuln_scan 192.168.1.100
+```
+
+* `-oA` = Output in all formats: `.nmap`, `.xml`, `.gnmap`
+
+---
+
+## 📦 Useful NSE Scripts (Examples)
+
+| Script Name              | Vulnerability Scanned                |
+| ------------------------ | ------------------------------------ |
+| `ftp-vsftpd-backdoor`    | Backdoor in vsFTPd 2.3.4             |
+| `smb-vuln-ms17-010`      | EternalBlue vulnerability (WannaCry) |
+| `http-slowloris`         | Slowloris DoS                        |
+| `ssl-heartbleed`         | Heartbleed (CVE-2014-0160)           |
+| `http-vuln-cve2015-1635` | MS15-034 HTTP.sys DoS                |
+
+---
+
+## 🔐 Example: Scan a Windows Target for MS17-010 (EternalBlue)
+
+```bash
+nmap -p445 --script smb-vuln-ms17-010 192.168.1.100
+```
+
+---
+
+## 🧠 Tips
+
+* Keep your `nmap` up to date: `sudo apt update && sudo apt install nmap`
+* Learn NSE scripting if you want to write custom PoCs
+* Use `--script-args` to pass arguments to scripts
+* Use `nmap --script-help <script-name>` to get more info
+
+---
+
+If you tell me what system or service you're testing (like Apache, SMB, FTP, etc.), I can suggest specific `nmap` scripts or help you write a custom one for PoC use.
+
+Want to go deeper?
