@@ -1,0 +1,17 @@
+service: telnet  port: 23  default_user: root (without password)
+  $telnet ip
+
+service: ftp  port: 21  default_user: anonymous (without password)
+  $ftp user@ip
+
+service: SMB  port: 445 (optional- 139, 137, 138)  
+  $smbclient -L ip
+  $smbclient \\\\ip\\shared_location_name
+
+service: redis  port: 6379 
+  $redis-cli -h ip
+
+
+
+
+  
