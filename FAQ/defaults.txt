@@ -11,7 +11,8 @@ service: SMB  port: 445 (optional- 139, 137, 138)
 service: redis  port: 6379 
   $redis-cli -h ip
 
-
+service: mysql  port: 3306  default_user: root (without password)
+  $mysql -h ip -u user
 
 
   
