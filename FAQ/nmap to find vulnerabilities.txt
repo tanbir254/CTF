@@ -1,12 +1,7 @@
-Using `nmap` to find vulnerabilities for **Proof-of-Concept (PoC)** testing is a common part of ethical hacking, penetration testing, and security research. Here's how to do it **safely and legally**.
+scan all port fast mode
+$nmap -p- -sV -T4 ip    #T4 max value
 
----
-
-### ⚠️ Disclaimer
-
-**Use Nmap only on systems you own or have explicit permission to test. Unauthorized scanning is illegal.**
-
----
+================================================================
 
 ## 🧰 Step-by-Step: Using Nmap for Vulnerability Scanning
 
@@ -121,6 +116,3 @@ nmap -p445 --script smb-vuln-ms17-010 192.168.1.100
 
 ---
 
-If you tell me what system or service you're testing (like Apache, SMB, FTP, etc.), I can suggest specific `nmap` scripts or help you write a custom one for PoC use.
-
-Want to go deeper?
