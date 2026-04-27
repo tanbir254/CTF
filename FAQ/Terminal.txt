@@ -1,3 +1,10 @@
 Add text to file not using editor
 $echo "10.129.128.223 unika.htb" | sudo tee -a /etc/hosts
 
+
+Find some word from any file in the current directory
+$grep -r "desire_word" ./*.xml
+
+
+
+
