@@ -1,0 +1,17 @@
+base32 convert steps
+$echo "MJQXGZJTGIQGS4ZAON2XAZLSEBRW63LNN5XCA2LOEBBVIRRHOM======" | base32 -d
+or
+$python3 -c "import base64; print(base64.b32decode('MJQXGZJTGIQGS4ZAON2XAZLSEBRW63LNN5XCA2LOEBBVIRRHOM======').decode())"
+
+
+Hexadecimal convert steps
+$echo "68 65 78 61 64 65 63 69 6d 61 6c 20 6f 72 20 62 61 73 65 31 36 3f" | xxd -r -p
+or
+$printf "\x68\x65\x78\x61\x64\x65\x63\x69\x6d\x61\x6c\x20\x6f\x72\x20\x62\x61\x73\x65\x31\x36\x3f\n"
+
+
+Rot string, shift charecter to decode
+$ echo 'Ebgngr zr 13 cynprf!' | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+This one ROT13 need to shift 13 charecter
+
+
