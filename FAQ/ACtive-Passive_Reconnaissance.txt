@@ -1,0 +1,67 @@
+# Passive reconnaissance refers to gathering intelligence from public sources without contacting the target. 
+# This stands in contrast to Active reconnaissance, where you interact with the target directly and risk detection.
+# Common passive activities include:
+      Querying public DNS records from open resolvers (A, MX, TXT, etc.).
+      Searching certificate transparency logs (e.g., crt.sh) for subdomains and issued certificates.
+      Reviewing job postings on LinkedIn or company career pages for tech stack hints.
+      Reading public news, press releases, or leaked documents on paste sites.
+      Checking exposed devices via search engines like Shodan or Censys.
+      Scanning public GitHub repositories for hardcoded credentials or configuration files.
+# Common active activities include:
+      Sending packets to discover live hosts (e.g., ICMP pings, ARP requests).
+      Port scanning or service enumeration (Nmap, masscan).
+      Interacting with web applications or APIs (fuzzing endpoints, directory brute-forcing).
+      Social engineering attempts (phishing, vishing, pretexting phone calls).
+      Physical approaches (tailgating, posing as a vendor).
+# WHOIS response, the following details may be available (when not redacted): $whois DOMAIN_NAME
+      Registrar: The company (e.g., Namecheap, GoDaddy) that registered the domain.
+      Registrant contact information: Name, organisation, address, phone, and email. However, privacy services (standard since GDPR 2018) usually replace this with "Withheld for Privacy" or similar.
+      Dates: Creation (registration), Updated (last change), and Expiration (renewal deadline).
+      Name servers: The DNS servers authoritative for the domain.
+      Status codes: For example, clientTransferProhibited indicates the domain is locked against unauthorised transfers.
+      Abuse contacts: The registrar's email and phone for reporting issues.
+# WHOIS Is Being Replaced By Registration Data Access Protocol (RDAP)
+      $curl -s https://rdap.verisign.com/com/v1/domain/tryhackme.com | jq 
+# Online alternatives (if the whois command behaves unexpectedly):
+      https://whois.icann.org/ (legacy WHOIS)
+      https://lookup.icann.org/ (modern RDAP-focused lookup)
+      https://www.whoxy.com/ (historical WHOIS snapshots, free limited use)
+# nslookup (Name Server Lookup) is the older of the two tools. Syntax:
+      $nslookup DOMAIN_NAME performs a simple lookup using your default resolver.
+      $nslookup -type=TYPE DOMAIN_NAME [SERVER] specifies a record type and an optional DNS server.
+# dig is the modern, preferred DNS query tool. Syntax: 
+      $dig [@SERVER] DOMAIN_NAME [TYPE]
+#  DNSDumpster. It aggregates public DNS data from sources such as search engine caches, zone transfer databases, and certificate records
+      $https://dnsdumpster.com/
+# Certificate Transparency (CT) Logs
+      $https://crt.sh and search %.tryhackme.com for subdomains
+# Shodan is a search engine for internet-connected devices. 
+      $https://www.shodan.io/
+      $https://search.censys.io/
+# Passive Reconnaissance covered gathering intelligence from DNS records, WHOIS data, certificate logs, and services like Shodan without the target ever knowing. 
+  In Active Reconnaissance will use web browsers, ping, traceroute, telnet, and netcat to interact with targets and extract information that passive methods cannot reveal.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
