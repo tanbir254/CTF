@@ -39,9 +39,14 @@
       $https://www.shodan.io/
       $https://search.censys.io/
 # Passive Reconnaissance covered gathering intelligence from DNS records, WHOIS data, certificate logs, and services like Shodan without the target ever knowing. 
-  In Active Reconnaissance will use web browsers, ping, traceroute, telnet, and netcat to interact with targets and extract information that passive methods cannot reveal.
+# In Active Reconnaissance will use web browsers, ping, traceroute, telnet, and netcat to interact with targets and extract information that passive methods cannot reveal.
 
 
+# PING
+      Ping uses the ICMP protocol (Internet Control Message Protocol). It sends an ICMP Echo Request packet (type 8). If the target receives the packet and is permitted to answer, it sends back an ICMP Echo Reply 
+      (type 0). This exchange is very lightweight and fast, which is why ping became the standard first check before spending time on more detailed scanning.
+# traceroute 
+      
 
 
 
