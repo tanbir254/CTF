@@ -1,0 +1,22 @@
+# John-the-ripper Script need to do ssh_authentication bypass, run the below cmd
+  $find / -name ssh2john.py 2>/dev/null
+
+# Then using the RSA key and the above path grnerate a hash value
+  $python3 /usr/share/john/ssh2john.py id_rsa_1593558668558.id_rsa > ssh.hash
+
+# Can check it by the following cmd
+  $cat ssh.hash   
+
+# Using a wordlist find the hash if exists
+  $john ssh.hash --wordlist=/usr/share/wordlists/rockyou.txt
+
+# To show the cracked passwod run the followings
+  $john --show ssh.hash
+
+
+#########
+
+# Now suppose we have a .gpg file with a key. to see the encrypted message 
+  $gpg --import tryhackme.key
+then
+  $gpg --decrypt message.gpg
